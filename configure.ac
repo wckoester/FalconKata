@@ -3,11 +3,13 @@
 
 AC_PREREQ([2.69])
 AC_INIT([FULL-PACKAGE-NAME], [VERSION], [BUG-REPORT-ADDRESS])
+AM_INIT_AUTOMAKE
 AC_CONFIG_SRCDIR([tests/check_roman.c])
 AC_CONFIG_HEADERS([config.h])
 
 # Checks for programs.
 AC_PROG_CC
+AC_PROG_RANLIB
 
 # Checks for libraries.
 
