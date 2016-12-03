@@ -2,7 +2,7 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.69])
-AC_INIT([FULL-PACKAGE-NAME], [VERSION], [BUG-REPORT-ADDRESS])
+AC_INIT([wckoester_Falcon_Kata], [1.0], [bill.koester@pillartechnology.com])
 AM_INIT_AUTOMAKE
 AC_CONFIG_SRCDIR([tests/check_roman.c])
 AC_CONFIG_HEADERS([config.h])
