@@ -12,6 +12,7 @@ AC_PROG_CC
 AC_PROG_RANLIB
 
 # Checks for libraries.
+PKG_CHECK_MODULES([CHECK], [check])
 
 # Checks for header files.
 
