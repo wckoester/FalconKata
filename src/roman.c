@@ -58,6 +58,21 @@ int romanToInt(char *s)
 
 int intToRoman (int num, char *buf) 
 {
-   buf[0]=0;
-   return -1;
+    char *huns[] = {"", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"};
+    char *tens[] = {"", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"};
+    char *ones[] = {"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"};
+    int   size[] = { 0,   1,    2,     3,    2,   1,    2,     3,      4,    2};
+
+    while (num >= 1000) {
+        *buf++ = 'M';
+        num -= 1000;
+    }
+
+    strcpy (buf, huns[num/100]); buf += size[num/100]; num = num % 100;
+    strcpy (buf, tens[num/10]);  buf += size[num/10];  num = num % 10;
+    strcpy (buf, ones[num]);     buf += size[num];
+
+    // Finish string off.
+
+    *buf = '\0';
 }
