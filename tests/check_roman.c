@@ -104,9 +104,19 @@ END_TEST
 START_TEST(test_bad_input)
    char buf[100];
 
+   /* values less than 0 and greater than 3999 are not allowed */
    ck_assert_int_ne(intToRoman(0, buf), 0);
    ck_assert_int_ne(intToRoman(4000, buf), 0);
    ck_assert_int_ne(intToRoman(-1, buf), 0);
+
+   /* do not allow lower case */
+   ck_assert_int_eq(romanToInt("i"), -1);
+   ck_assert_int_eq(romanToInt("v"), -1);
+   ck_assert_int_eq(romanToInt("x"), -1);
+   ck_assert_int_eq(romanToInt("l"), -1);
+   ck_assert_int_eq(romanToInt("c"), -1);
+   ck_assert_int_eq(romanToInt("d"), -1);
+   ck_assert_int_eq(romanToInt("m"), -1);
 END_TEST
 
 static Suite *roman_suite(void)
