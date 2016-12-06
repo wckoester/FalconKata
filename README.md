@@ -7,6 +7,8 @@ As a package developer
 
 git clone git@github.com:wckoester/FalconKata.git
 
+cd FalconKata
+
 autoreconf --install
 
 ./configure
@@ -27,8 +29,6 @@ cd FalconKata
 ./configure
 
 make check
-
-make install
 
 
 Web Resources
