@@ -89,11 +89,33 @@ START_TEST(test_int_to_roman)
    }
 END_TEST
 
+START_TEST(test_full_range)
+   int i,j;
+   char buf[100];
+
+   for(i=1;i<4000;i++)
+   {
+      intToRoman(i, buf);
+      j=romanToInt(buf);
+      ck_assert_int_eq(i,j);
+   }
+END_TEST
+
+START_TEST(test_bad_input)
+   char buf[100];
+
+   ck_assert_int_ne(intToRoman(0, buf), 0);
+   ck_assert_int_ne(intToRoman(4000, buf), 0);
+   ck_assert_int_ne(intToRoman(-1, buf), 0);
+END_TEST
+
 static Suite *roman_suite(void)
 {
    Suite *s;
    TCase *tc_rtoi;
    TCase *tc_itor;
+   TCase *tc_full_range;
+   TCase *tc_bad_input;
 
    s = suite_create("Roman");
    
@@ -106,6 +128,16 @@ static Suite *roman_suite(void)
 
    tcase_add_test(tc_itor, test_int_to_roman);
    suite_add_tcase(s, tc_itor);
+
+   tc_full_range = tcase_create("FullRange");
+
+   tcase_add_test(tc_full_range, test_full_range);
+   suite_add_tcase(s, tc_full_range);
+
+   tc_bad_input = tcase_create("BadInput");
+
+   tcase_add_test(tc_bad_input, test_bad_input);
+   suite_add_tcase(s, tc_bad_input);
 
    return s;
 }

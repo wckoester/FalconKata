@@ -63,6 +63,8 @@ int intToRoman (int num, char *buf)
     char *ones[] = {"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"};
     int   size[] = { 0,   1,    2,     3,    2,   1,    2,     3,      4,    2};
 
+    if((num>3999) || (num<1)) return -1;
+
     while (num >= 1000) {
         *buf++ = 'M';
         num -= 1000;
@@ -75,4 +77,5 @@ int intToRoman (int num, char *buf)
     // Finish string off.
 
     *buf = '\0';
+    return 0;
 }
