@@ -26,56 +26,65 @@ static int value(char r)
 
 int romanToInt(char *s)
 {
-    int i;
-    int result = 0;
+   int i;
+   int result = 0;
  
-    for (i=0; i<strlen(s); i++)
-    {
-        int s1 = value(s[i]);
+   for (i=0; i<strlen(s); i++)
+   {
+      int s1 = value(s[i]);
  
-        if (i+1 < strlen(s))
-        {
-            int s2 = value(s[i+1]);
- 
-            if (s1 >= s2)
+      if (i+1 < strlen(s))
+      {
+         /* check for invalid repeats */
+         if(s[i]==s[i+1]) 
+         {
+            if( s[i]=='V' || s[i]=='L' || s[i]=='D' ) return -1;
+         }
+         if (i+3 < strlen(s))
+         {
+            if(s[i]==s[i+1] && s[i]==s[i+2] && s[i]==s[i+3]) 
             {
-                result = result + s1;
+               if( s[i]=='I' || s[i]=='X' || s[i]=='C' || s[i]=='M') return -1;
             }
-            else
-            {
-                result = result + s2 - s1;
-                i++; 
-            }
-        }
-        else
-        {
+         }
+
+         int s2 = value(s[i+1]);
+ 
+         if (s1 >= s2)
+         {
             result = result + s1;
-            i++;
-        }
-    }
-    return result;
+         } else {
+            result = result + s2 - s1;
+            i++; 
+         }
+      } else {
+         result = result + s1;
+         i++;
+      }
+   }
+   return result;
 }
 
 int intToRoman (int num, char *buf) 
 {
-    char *huns[] = {"", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"};
-    char *tens[] = {"", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"};
-    char *ones[] = {"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"};
-    int   size[] = { 0,   1,    2,     3,    2,   1,    2,     3,      4,    2};
+   char *huns[] = {"", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"};
+   char *tens[] = {"", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"};
+   char *ones[] = {"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"};
+   int   size[] = { 0,   1,    2,     3,    2,   1,    2,     3,      4,    2};
 
-    if((num>3999) || (num<1)) return -1;
+   if((num>3999) || (num<1)) return -1;
 
-    while (num >= 1000) {
-        *buf++ = 'M';
-        num -= 1000;
-    }
+   while (num >= 1000) {
+      *buf++ = 'M';
+      num -= 1000;
+   }
 
-    strcpy (buf, huns[num/100]); buf += size[num/100]; num = num % 100;
-    strcpy (buf, tens[num/10]);  buf += size[num/10];  num = num % 10;
-    strcpy (buf, ones[num]);     buf += size[num];
+   strcpy (buf, huns[num/100]); buf += size[num/100]; num = num % 100;
+   strcpy (buf, tens[num/10]);  buf += size[num/10];  num = num % 10;
+   strcpy (buf, ones[num]);     buf += size[num];
 
-    // Finish string off.
+   // Finish string off.
 
-    *buf = '\0';
-    return 0;
+   *buf = '\0';
+   return 0;
 }

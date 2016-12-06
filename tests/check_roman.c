@@ -117,6 +117,15 @@ START_TEST(test_bad_input)
    ck_assert_int_eq(romanToInt("c"), -1);
    ck_assert_int_eq(romanToInt("d"), -1);
    ck_assert_int_eq(romanToInt("m"), -1);
+
+   /* I,X,C,M can repeat no more than 3 times, V,L,D cannot repeat */
+   ck_assert_int_eq(romanToInt("IIII"), -1);
+   ck_assert_int_eq(romanToInt("XXXX"), -1);
+   ck_assert_int_eq(romanToInt("CCCC"), -1);
+   ck_assert_int_eq(romanToInt("MMMM"), -1);
+   ck_assert_int_eq(romanToInt("VV"), -1);
+   ck_assert_int_eq(romanToInt("LL"), -1);
+   ck_assert_int_eq(romanToInt("DD"), -1);
 END_TEST
 
 static Suite *roman_suite(void)
