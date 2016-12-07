@@ -51,3 +51,8 @@ check
 check and autotools 
 	https://www.brendanlong.com/unit-testing-c-with-check-and-autotools.html
 
+autoconf
+	https://www.gnu.org/software/autoconf/manual/autoconf.html
+
+automake
+	https://www.gnu.org/software/automake/manual/automake.html
