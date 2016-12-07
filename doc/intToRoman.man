@@ -1,0 +1,23 @@
+.TH INTTOROMAN 3  2016-12-07 "" "Linux Programmer's Manual"
+.SH NAME
+intToRoman \- convert integer to Roman Numeral string
+.SH SYNOPSIS
+.nf
+.B #include <roman.h>
+.sp
+.BI "int intToRoman(int num, char *buf);
+.fi
+.SH DESCRIPTION
+The
+.BR intToRoman ()
+function converts an integer to a Roman Numeral string.
+.PP
+.SH RETURN VALUE
+The
+.BR intToRoman ()
+function takes an integer in 'num' and returns a Roman Numeral string 
+in 'buf'. It returns zero on success and non-zero on failure, 
+The caller must insure buf is long enough to hold the resulting string.
+.SH SEE ALSO
+.BR romanToInt (3),
+.BR libroman (1)
