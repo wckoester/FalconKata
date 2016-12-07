@@ -1,0 +1,21 @@
+.TH ROMANTOINT 3  2016-12-07 "" "Linux Programmer's Manual"
+.SH NAME
+romanToInt \- convert a Roman Numeral string to an integer
+.SH SYNOPSIS
+.nf
+.B #include <roman.h>
+.sp
+.BI "int romanToInt(char *s);
+.fi
+.SH DESCRIPTION
+The
+.BR romanToInt ()
+function converts a Roman Numeral string into an integer.
+.PP
+.SH RETURN VALUE
+The
+.BR romanToInt ()
+function takes a romanl numeral in 's' and returns the interger equivilent or -1 to indicate a parsing error.
+.SH SEE ALSO
+.BR intToRoman (3),
+.BR libroman (1)
