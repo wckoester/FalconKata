@@ -1,0 +1,21 @@
+.\" This is a man page for the libroman static library.
+.
+.\" Written by Bill Koester, Detroit Michigan USA, 12/2016.
+.TH LIBROMAN 1 "11/07/2016" "(C) Pillar Technology Inc." "Bill Koester"
+.
+.SH NAME
+libroman \- Convert roman numerals to/from integers
+.
+.SH SYNOPSIS
+.B libroman
+.
+.SH DESCRIPTION
+The
+.B libroman
+library converts to/from integers and roman numerals.
+.
+.SH AUTHOR
+Bill Koester <bill.koester@pillartechnology.com
+.
+.SH SEE ALSO
+intToRoman(1) romanToInt(1)

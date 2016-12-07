@@ -24,3 +24,5 @@ tests/check_roman.o
 tests/check_roman.trs
 tests/test-suite.log
 wckoester_falcon_kata-1.0/
+autoscan.log
+configure.scan
