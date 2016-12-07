@@ -15,7 +15,13 @@ autoreconf --install
 
 make check
 
+make distcheck
+
 make dist
+
+make install
+
+make uninstall
 
 
 As a user
@@ -29,6 +35,12 @@ cd FalconKata
 ./configure
 
 make check
+
+make distcheck
+
+make install
+
+make uninstall
 
 
 Web Resources
