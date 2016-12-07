@@ -16,6 +16,7 @@ AC_PROG_INSTALL
 PKG_CHECK_MODULES([CHECK], [check])
 
 # Checks for header files.
+AC_CHECK_HEADERS([stdlib.h string.h])
 
 # Checks for typedefs, structures, and compiler characteristics.
 
